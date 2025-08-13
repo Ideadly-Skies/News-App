@@ -1,0 +1,54 @@
+{
+  "news": [
+    {
+      "id": "1",
+      "title": "Tech Conference 2025 Announced",
+      "description": "The annual Tech Conference will take place in San Francisco this September, bringing together leading innovators in AI, blockchain, and cloud computing.",
+      "poster": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop",
+      "publishedAt": "2025-07-11",
+      "originalUrl": "https://www.techcrunch.com/tech-conference-2025",
+      "author": "Jane Smith",
+      "category": "Technology"
+    },
+    {
+      "id": "2",
+      "title": "OpenAI Releases GPT-6",
+      "description": "OpenAI has officially launched GPT-6, boasting unprecedented performance in reasoning, coding, and creative writing tasks.",
+      "poster": "https://images.unsplash.com/photo-1676299088229-14c8c512e8a7?q=80&w=1200&auto=format&fit=crop",
+      "publishedAt": "2025-08-01",
+      "originalUrl": "https://openai.com/blog/gpt-6",
+      "author": "John Doe",
+      "category": "Artificial Intelligence"
+    },
+    {
+      "id": "3",
+      "title": "Indonesian Startup Raises $10M Series A",
+      "description": "Jakarta-based fintech startup FinLink has secured $10 million in Series A funding to expand its services across Southeast Asia.",
+      "poster": "https://images.unsplash.com/photo-1565372918671-ef8a11c7ebf2?q=80&w=1200&auto=format&fit=crop",
+      "publishedAt": "2025-06-30",
+      "originalUrl": "https://www.dealstreetasia.com/stories/finlink-series-a-10m",
+      "author": "Emily Chen",
+      "category": "Business"
+    },
+    {
+      "id": "9144",
+      "title": "Kylian Mbappe",
+      "description": "Kylian Mbappé Lottin (born 20 December 1998)[2] is a French professional footballer who plays as a forward for La Liga club Real Madrid and captains the France national team. Widely regarded as one of the best players of his generation, he is known for his dribbling, finishing, and speed.\n\nBorn in Paris and raised in nearby Bondy, Mbappé began his senior club career in 2015 with Monaco, where he won the Ligue 1 title in the 2016–17 season. In 2017, aged 18, Mbappé signed for Paris Saint-Germain on an eventual permanent transfer worth €180 million, making him the second-most-expensive player and most expensive teenage player of all time.[3] With PSG, he won six Ligue 1 titles and four Coupes de France, including a domestic quadruple in the 2019–20 season, while also leading the club to its first ever UEFA Champions League final in 2020. He is the club's all-time top goalscorer, ranks third in assists, and is the seventh-highest goalscorer in Ligue 1 history. In 2024, after several years of speculation, Mbappé joined Real Madrid on a free transfer. He won the UEFA Super Cup and the FIFA Intercontinental Cup in the first half of his debut season, scoring in both finals. Breaking the record for the most goals scored by a Real Madrid player in their debut season, he also won the Pichichi Trophy and his first European Golden Shoe.\n\nAt international level, Mbappé made his senior debut for France in 2017 at the age of 18. At the 2018 FIFA World Cup, Mbappé became the youngest French player to score at a World Cup, as well as the second teenager, after Pelé, to score in a World Cup final. He finished as the joint second-highest goalscorer as France won the tournament; he went on to win the FIFA World Cup Best Young Player and French Player of the Year awards for his performances. He also helped France to victory in the UEFA Nations League in 2021, receiving the top scorer award in the finals. At the 2022 FIFA World Cup, France reached the final again; Mbappé won the Golden Boot and Silver Ball and set the record for the most goals scored in World Cup final matches by scoring a hat-trick. Mbappé is one of only two players to have scored in two consecutive World Cup finals (the other being Brazil's Vavá in 1958 and 1962).\n\nMbappé finished in third place for the 2023 Ballon d'Or and was runner-up for the 2022 The Best FIFA Men's Player award. He was named to the FIFA FIFPro World11 in 2018, 2019, 2022, 2023 and 2024, the UEFA Team of the Year in 2018 and the UEFA Champions League Squad of the Season in 2016–17, 2019–20, 2020–21 and 2021–22. He was awarded the Golden Boy in 2017, the Kopa Trophy in 2018, and was shortlisted for the Laureus World Sportsman of the Year in 2019 and 2023. Mbappé has been named Ligue 1 Player of the Year a record five times, and has finished as the Ligue 1 top scorer for a record six seasons; in the 2021–22 season, he became the first player to finish as both Ligue 1 top scorer and top assist provider. In 2023, he was named as one of the Time's 100 most influential people in the world, and was ranked third on the Forbes list of the world's highest-paid athletes.",
+      "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Picture_with_Mbapp%C3%A9_%28cropped%29_%28cropped%29.jpg/250px-Picture_with_Mbapp%C3%A9_%28cropped%29_%28cropped%29.jpg",
+      "publishedAt": "2025-08-13",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Picture_with_Mbapp%C3%A9_%28cropped%29_%28cropped%29.jpg/250px-Picture_with_Mbapp%C3%A9_%28cropped%29_%28cropped%29.jpg",
+      "author": "Obie Ananda",
+      "category": "Football Player"
+    },
+    {
+      "id": "7bff",
+      "title": "Lionel Messi",
+      "description": "Lionel Andrés \"Leo\" Messi[note 1] (Spanish pronunciation: [ljoˈnel anˈdɾes ˈmesi] ⓘ; born 24 June 1987) is an Argentine professional footballer who plays as a forward for and captains both Major League Soccer club Inter Miami and the Argentina national team. Widely regarded as one of the greatest players in history, Messi has set numerous records for individual accolades won throughout his professional footballing career, including eight Ballons d'Or, six European Golden Shoes, and eight times being named the world's best player by FIFA.[note 2] In 2025, he was named the All Time Men's World Best Player by the IFFHS. He is the most decorated player in the history of professional football having won 45 team trophies.[note 3] Messi's records include most goals in a calendar year (91), most goals for a single club (672 for Barcelona), most goals in La Liga (474), most goal contributions in the FIFA World Cup (21), and most goal contributions in the Copa América (32). A prolific goalscorer and creative playmaker, Messi has scored more than 870 senior career goals and has provided more than 380 assists for club and country.[21]\r\n\r\nMessi made his competitive debut for Barcelona at age 17 in October 2004. He gradually established himself as an integral player for the club, and during his first uninterrupted season at age 22 in 2008–09 he helped Barcelona achieve the first treble in Spanish football. This resulted in Messi winning the first of four consecutive Ballon d'Ors, and by the 2011–12 season he set the European record for most goals in a season and established himself as Barcelona's all-time top scorer. During the 2014–15 campaign, where he became the all-time top scorer in La Liga, he led Barcelona to a historic second treble, leading to a fifth Ballon d'Or in 2015. He assumed Barcelona's captaincy in 2018 and won a record sixth Ballon d'Or in 2019. At Barcelona, Messi won a club-record 34 trophies, including ten La Liga titles and four Champions Leagues, among others. Financial difficulties at Barcelona led to Messi signing with French club Paris Saint-Germain in August 2021, where he won the Ligue 1 title during both of his seasons there. He joined MLS club Inter Miami in July 2023.\r\n\r\nAn Argentine international, Messi is the national team's all-time leading goalscorer and most-capped player. Several years after his senior debut in 2005, he won the gold medal at the 2008 Summer Olympics. Assuming captaincy in 2011, he led Argentina to three consecutive finals in the 2014 World Cup, the 2015 Copa América and the Copa América Centenario, all of which they would lose. After initially announcing his international retirement in 2016, he returned to help his country narrowly qualify for the 2018 World Cup. Messi was central to ending Argentina's 28-year trophy drought by winning the 2021 Copa América, which helped him secure his seventh Ballon d'Or that year. In the following year, he led Argentina to winning the 2022 World Cup, the country's first in 36 years. This followed with a record-extending eighth Ballon d'Or in 2023. Messi was victorious at the 2024 Copa América, his third major international title.\r\n\r\nMessi has endorsed sportswear company Adidas since 2006. According to France Football, he was the world's highest-paid footballer for five years out of six between 2009 and 2014, and was ranked the world's highest-paid athlete by Forbes in 2019 and 2022. Messi was among Time's 100 most influential people in the world in 2011, 2012, and 2023. In 2020 and 2023, he was named the Laureus World Sportsman of the Year, the first team-sport athlete to win it. In 2020, Messi was named to the Ballon d'Or Dream Team and became the second footballer and second team-sport athlete to surpass $1 billion in career earnings. Following his arrival and impact on football in the US, Messi was named Time's Athlete of the Year in 2023, and was bestowed with the Presidential Medal of Freedom by US president Joe Biden in 2025.",
+      "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Lionel_Messi_NE_Revolution_Inter_Miami_7.9.25-055.jpg/500px-Lionel_Messi_NE_Revolution_Inter_Miami_7.9.25-055.jpg",
+      "publishedAt": "2025-08-13",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Lionel_Messi_NE_Revolution_Inter_Miami_7.9.25-055.jpg/500px-Lionel_Messi_NE_Revolution_Inter_Miami_7.9.25-055.jpg",
+      "author": "Obie Ananda",
+      "category": "Football Player"
+    }
+  ]
+}
