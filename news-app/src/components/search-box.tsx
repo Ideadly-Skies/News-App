@@ -1,7 +1,7 @@
 // components/search-box.tsx
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useTransition } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 export default function SearchBox() {
@@ -10,41 +10,57 @@ export default function SearchBox() {
   const searchParams = useSearchParams();
 
   const [value, setValue] = useState(searchParams.get('q') ?? '');
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [isPending, startTransition] = useTransition();
+  const timeoutRef = useRef<number | null>(null);
 
-  // Keep input in sync if user navigates with back/forward
+  // Keep input in sync with the URL (back/forward)
   useEffect(() => {
     setValue(searchParams.get('q') ?? '');
   }, [searchParams]);
 
+  // Clear any pending debounce when unmounting
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
+    };
+  }, []);
+
+  const navigate = (v: string, replace = false) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (v) {
+      params.set('q', v);
+      params.delete('page'); // reset pagination
+      const url = `/search?${params.toString()}`;
+   
+      // warm up to reduce blank page opener   
+      router.prefetch?.(url);
+      startTransition(() =>
+        replace ? router.replace(url) : router.push(url)
+      );
+    } else {
+      params.delete('q');
+      params.delete('page');
+      const url = pathname;
+      startTransition(() => router.replace(url));
+    }
+  };
+
   const onChange = (v: string) => {
     setValue(v);
-
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    timeoutRef.current = setTimeout(() => {
-      const params = new URLSearchParams(searchParams.toString());
-
-      if (v.trim()) {
-        params.set('q', v.trim());
-        params.delete('page'); // reset pagination on a new query
-        router.push(`/search?${params.toString()}`);
-      } else {
-        params.delete('q');
-        params.delete('page');
-        // If you prefer staying on the same page with an empty query, skip push
-        router.push(pathname);
-      }
-    }, 500);
+    if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
+    timeoutRef.current = window.setTimeout(() => {
+      navigate(v.trim(), true); 
+    }, 400);
   };
 
   const onSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
-    // Allow manual submit as a fallback (no debounce)
-    // so pressing Enter or clicking "Go" still works.
+    e.preventDefault(); 
+    if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
+    navigate(value.trim(), false);
   };
 
   return (
-    <form action="/search" method="GET" onSubmit={onSubmit}
-      className="flex items-center gap-2 w-full max-w-md">
+    <form onSubmit={onSubmit} className="flex items-center gap-2 w-full max-w-md">
       <div className="relative flex-1">
         <input
           name="q"
@@ -59,7 +75,8 @@ export default function SearchBox() {
       </div>
       <button
         type="submit"
-        className="px-3 py-2 rounded-md border text-sm font-semibold hover:bg-gray-50"
+        disabled={isPending}
+        className="px-3 py-2 rounded-md border text-sm font-semibold hover:bg-gray-50 disabled:opacity-50"
       >
         Go
       </button>
