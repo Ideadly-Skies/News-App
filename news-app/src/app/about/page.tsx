@@ -7,11 +7,6 @@ export const metadata = {
     'About our mission, journalism, culture, community impact, and more.',
 };
 
-const HERO_DESKTOP =
-  'https://nytco-assets.nytimes.com/2025/05/cc-front-building-entrance-desktop-scaled.jpg?width=3000';
-const HERO_MOBILE =
-  'https://nytco-assets.nytimes.com/2025/06/cc-front-building-entrance-mobile.jpg?width=1000';
-
 export default function About() {
   return (
     <main id="main" className="min-h-screen">
@@ -81,17 +76,32 @@ export default function About() {
             <p className="uppercase text-xs font-bold tracking-wider">Explore</p>
             <ul className="mt-2 divide-y">
               <li className="py-3">
-                <Link href="/mission-and-values" className="hover:underline">
+                <Link
+                  href="https://www.nytco.com/mission-and-values/"
+                  className="hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Our Mission and Values
                 </Link>
               </li>
               <li className="py-3">
-                <Link href="/press/our-strategy" className="hover:underline">
+                <Link
+                  href="https://www.nytco.com/press/our-strategy/"
+                  className="hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Our Business Strategy
                 </Link>
               </li>
               <li className="py-3">
-                <Link href="/standards-and-ethics" className="hover:underline">
+                <Link
+                  href="https://www.nytco.com/standards-and-ethics/"
+                  className="hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Our Standards and Ethics
                 </Link>
               </li>
@@ -127,38 +137,43 @@ export default function About() {
       <section className="container mx-auto px-4 py-10 md:py-14">
         <div className="grid md:grid-cols-3 gap-8">
           <div>
-            <h2 className="text-2xl md:text-3xl font-serif mb-2">
-              Our Journalism
-            </h2>
+        <h2 className="text-2xl md:text-3xl font-serif mb-2">
+          Our Journalism
+        </h2>
           </div>
           <div>
-            <p className="text-lg leading-relaxed">
-              We cover the world in a variety of ways that help readers: breaking
-              news that doesnt sacrifice quality for speed, expert beat
-              reporting, signature investigations, and commentary and criticism
-              that help readers interpret the world. In a typical year, we
-              report on the ground from more than 160 countries.
-            </p>
+        <p className="text-lg leading-relaxed">
+          We cover the world in a variety of ways that help readers: breaking
+          news that doesnt sacrifice quality for speed, expert beat
+          reporting, signature investigations, and commentary and criticism
+          that help readers interpret the world. In a typical year, we
+          report on the ground from more than 160 countries.
+        </p>
           </div>
           <div>
-            <figure>
-              <Image
-                src="https://nytco-assets.nytimes.com/2025/06/cc-pulitzer-announcement-2025.jpg"
-                alt="Pulitzer announcement 2025"
-                width={2000}
-                height={1250}
-                className="w-full h-auto"
-              />
-              <figcaption className="mt-2 text-sm text-gray-600">
-                Senior leaders and journalists celebrated an incredible year of
-                journalism and spoke about the 2025 Pulitzer Prize winners. —
-                Earl Wilson/The New York Times
-              </figcaption>
-            </figure>
+        <figure>
+          <Image
+            src="https://nytco-assets.nytimes.com/2025/06/cc-pulitzer-announcement-2025.jpg"
+            alt="Pulitzer announcement 2025"
+            width={2000}
+            height={1250}
+            className="w-full h-auto"
+          />
+          <figcaption className="mt-2 text-sm text-gray-600">
+            Senior leaders and journalists celebrated an incredible year of
+            journalism and spoke about the 2025 Pulitzer Prize winners. —
+            Earl Wilson/The New York Times
+          </figcaption>
+        </figure>
           </div>
         </div>
 
-        <CTA href="/journalism" label="learn more about our journalism" />
+        <CTA
+          href="https://www.nytco.com/journalism/"
+          label="learn more about our journalism"
+          target="_blank"
+          rel="noopener noreferrer"
+        />
       </section>
 
       <Separator />
@@ -184,17 +199,32 @@ export default function About() {
             <p className="uppercase text-xs font-bold tracking-wider">Explore</p>
             <ul className="mt-2 divide-y">
               <li className="py-3">
-                <Link href="/our-culture" className="hover:underline">
+                <Link
+                  href="https://www.nytco.com/our-culture/"
+                  className="hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Our Culture
                 </Link>
               </li>
               <li className="py-3">
-                <Link href="/people" className="hover:underline">
+                <Link
+                  href="https://www.nytco.com/people/"
+                  className="hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Our Colleagues
                 </Link>
               </li>
               <li className="py-3">
-                <Link href="/careers" className="hover:underline">
+                <Link
+                  href="https://www.nytco.com/careers/"
+                  className="hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Career Opportunities
                 </Link>
               </li>
@@ -225,12 +255,14 @@ export default function About() {
               className="w-full h-auto"
             />
             <figcaption className="mt-2 text-sm text-gray-600">
-              <Link
-                href="/2024-new-york-times-diversity-and-inclusion-report/"
+                <Link
+                href="https://www.nytco.com/2024-new-york-times-diversity-and-inclusion-report/"
                 className="underline"
-              >
+                target="_blank"
+                rel="noopener noreferrer"
+                >
                 The 2024 Diversity and Inclusion Report
-              </Link>
+                </Link>
             </figcaption>
           </figure>
         </div>
@@ -242,24 +274,26 @@ export default function About() {
       <section className="container mx-auto px-4 py-10 md:py-14">
         <div className="grid md:grid-cols-3 gap-8">
           <div className="md:col-span-1">
-            <h2 className="text-2xl md:text-3xl font-serif mb-2">
-              In the Community
-            </h2>
+        <h2 className="text-2xl md:text-3xl font-serif mb-2">
+          In the Community
+        </h2>
           </div>
           <div className="md:col-span-2">
-            <p className="text-lg leading-relaxed">
-              The Times provides trustworthy journalism that empowers citizens to
-              understand the world. We&aposre committed to considering our
-              environmental impact and to supporting the broader journalistic
-              community and the rights that make it possible to bring the public
-              the information it needs.
-            </p>
+        <p className="text-lg leading-relaxed">
+          The Times provides trustworthy journalism that empowers citizens to
+          understand the world. We&aposre committed to considering our
+          environmental impact and to supporting the broader journalistic
+          community and the rights that make it possible to bring the public
+          the information it needs.
+        </p>
           </div>
         </div>
 
         <CTA
-          href="/in-the-community"
+          href="https://www.nytco.com/in-the-community/"
           label="learn more about our impact in the community"
+          target="_blank"
+          rel="noopener noreferrer"
         />
       </section>
 
@@ -268,28 +302,36 @@ export default function About() {
         <div className="container mx-auto px-4 py-10">
           <h2 className="text-2xl md:text-3xl font-serif">Explore More</h2>
 
-          <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             <ExploreCard
               href="https://www.nytco.com/history/"
               title="History"
               img="https://nytco-assets.nytimes.com/2025/05/homepage-lobby-front-page-installation.jpg"
+              target="_blank"
+              rel="noopener noreferrer"
             />
             <ExploreCard
               href="https://www.nytco.com/awards/"
               title="Awards and Recognition"
               img="https://nytco-assets.nytimes.com/2025/07/cc-pulitzer-announcement-2025-square.jpg"
+              target="_blank"
+              rel="noopener noreferrer"
             />
             <ExploreCard
               href="https://www.nytco.com/press/"
               title="Press Room"
               img="https://nytco-assets.nytimes.com/2025/05/newsroom-exterior.jpg"
+              target="_blank"
+              rel="noopener noreferrer"
             />
             <ExploreCard
               href="https://www.nytco.com/careers/"
               title="Careers"
               img="https://nytco-assets.nytimes.com/2025/07/cc-nyt-building-facade-closeup-thumb.jpg"
+              target="_blank"
+              rel="noopener noreferrer"
             />
-          </div>
+            </div>
         </div>
       </section>
     </main>
@@ -297,7 +339,6 @@ export default function About() {
 }
 
 /* ——— Helpers ——— */
-
 function Separator() {
   return (
     <div className="relative">
@@ -306,53 +347,73 @@ function Separator() {
   );
 }
 
-function CTA({ href, label }: { href: string; label: string }) {
+function CTA({
+  href,
+  label,
+  target,
+  rel,
+}: {
+  href: string;
+  label: string;
+  target?: string;
+  rel?: string;
+}) {
   return (
-    <div className="border-y border-black/10 mt-10">
-      <Link
-        href={href}
-        className="flex items-center gap-3 py-6 md:py-8 group"
-        title={label}
-      >
-        <span className="inline-grid place-items-center w-8 h-8 rounded-full bg-black text-white">
-          {/* play/chevron style glyph */}
-          <svg width="16" height="16" viewBox="0 0 32 32" aria-hidden="true">
-            <circle cx="16" cy="16" r="16" />
-            <path
-              d="M21.8 15.6 12.8 10.1c-.4-.3-1.0.2-.7.6l2.9 5.3-2.9 5.3c-.2.4.3.9.7.6l9-5.5c.3-.2.3-.6 0-.8Z"
-              fill="currentColor"
-            />
-          </svg>
-        </span>
-        <span className="uppercase text-sm font-bold tracking-wide group-hover:underline">
-          {label}
-        </span>
+    <div className="group relative mt-10 border-y border-black/10 transition-colors duration-300 hover:bg-[#F5A623] focus-within:bg-[#F5A623]">
+      {/* Keep the link above the highlight */}
+      <Link href={href} passHref legacyBehavior>
+        <a
+          className="relative z-10 flex items-center gap-3 py-6 md:py-8 group"
+          title={label}
+          target={target}
+          rel={rel}
+        >
+          <span className="inline-grid place-items-center w-8 h-8 rounded-full bg-black text-white">
+            <svg width="16" height="16" viewBox="0 0 32 32" aria-hidden="true">
+              <circle cx="16" cy="16" r="16" />
+              <path
+                d="M21.8 15.6 12.8 10.1c-.4-.3-1.0.2-.7.6l2.9 5.3-2.9 5.3c-.2.4.3.9.7.6l9-5.5c.3-.2.3-.6 0-.8Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+          <span className="uppercase text-sm font-bold tracking-wide group-hover:underline">
+            {label}
+          </span>
+        </a>
       </Link>
     </div>
   );
 }
 
+
 function ExploreCard({
   href,
   title,
   img,
+  target,
+  rel
 }: {
   href: string;
   title: string;
   img: string;
+  target?: string;
+  rel?: string;
 }) {
   return (
-    <Link href={href} className="group block no-underline">
-      <div className="aspect-square overflow-hidden">
-        <Image
-          src={img}
-          alt={title}
-          width={1000}
-          height={1000}
-          className="h-full w-full object-cover transition-opacity duration-200 group-hover:opacity-85"
-        />
-      </div>
-      <p className="mt-3 font-sans font-bold text-lg">{title}</p>
+    <Link href={href} passHref legacyBehavior>
+      <a className="group block no-underline" target={target} rel={rel}>
+        <div className="aspect-square overflow-hidden">
+          <Image
+            src={img}
+            alt={title}
+            width={1000}
+            height={1000}
+            className="h-full w-full object-cover transition-opacity duration-200 group-hover:opacity-85"
+          />
+        </div>
+        <p className="mt-3 font-sans font-bold text-lg">{title}</p>
+      </a>
     </Link>
   );
 }
