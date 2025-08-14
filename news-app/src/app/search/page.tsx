@@ -1,13 +1,13 @@
 // app/search/page.tsx
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
 import NewsContainer from '@/components/news-container';
 import EmptyState from '@/components/empty-state';
-import NoDataAnimation from '@/lotties/404.json';
+import NoDataAnimation from '@/lotties/404.json'; 
 
 const API_KEY = process.env.NYTIMES_API_KEY;
 const PAGE_SIZE = 10;
 export const revalidate = 0;
+export const dynamic = 'force-dynamic';
 
 type SearchParams = { q?: string; page?: string };
 
@@ -33,7 +33,7 @@ function toNews(d: NYTSearchDoc, idx: number): News {
     id: String(idx),
     title: d.headline?.main ?? 'Untitled',
     description: d.abstract ?? '',
-    poster: img ? `https://static01.nyt.com/${img}` : '',
+    poster: img ? `https://static01.nyt.com/${img}` : '', // OK: NewsCard must handle empty safely
     publishedAt: d.pub_date ?? '',
     originalUrl: d.web_url,
     author: d.byline?.original?.replace(/^By\s+/i, '') ?? '',
@@ -44,23 +44,29 @@ function toNews(d: NYTSearchDoc, idx: number): News {
 async function fetchSearch(q: string, page: number) {
   const url = new URL('https://api.nytimes.com/svc/search/v2/articlesearch.json');
   url.searchParams.set('q', q);
-  url.searchParams.set('page', String(page));
+  url.searchParams.set('page', String(page)); // 0-indexed
   url.searchParams.set('sort', 'newest');
   url.searchParams.set('api-key', API_KEY || '');
-  // cleaner result
+  // If you want only articles:
   // url.searchParams.set('fq', 'document_type:("article")');
 
-  const res = await fetch(url.toString(), { cache: 'no-store' });
-  if (!res.ok) notFound();
+  try {
+    const res = await fetch(url.toString(), { cache: 'no-store' });
+    if (!res.ok) {
+      // Don’t blow up the page—fall back to an empty result
+      console.error('Search request failed:', res.status, await res.text().catch(() => ''));
+      return { news: [] as News[], hits: 0, error: true as const };
+    }
 
-  const data: NYTSearchResponse = await res.json();
-  const docs = data.response?.docs ?? [];
+    const data: NYTSearchResponse = await res.json();
+    const docs = data.response?.docs ?? [];
+    const hits = (data.response?.meta?.hits ?? 0) || docs.length; // fallback when hits is missing
 
-  // If meta.hits is missing/0 but we have docs, fall back to docs.length
-  const hits =
-    (data.response?.meta?.hits ?? 0) || docs.length;
-
-  return { news: docs.map(toNews), hits };
+    return { news: docs.map(toNews), hits, error: false as const };
+  } catch (e) {
+    console.error('Search request crashed:', e);
+    return { news: [] as News[], hits: 0, error: true as const };
+  }
 }
 
 export default async function SearchPage({
@@ -79,19 +85,35 @@ export default async function SearchPage({
         <p className="text-center text-gray-500">
           Type a query in the search box to find articles.
         </p>
-
-        {/* Lottie empty state */}
         <div className="mt-8 flex justify-center">
-            <EmptyState
-                animation={NoDataAnimation}
-                message='begin searching now in the search bar!'
-            />
+          <EmptyState
+            animation={NoDataAnimation}
+            message="Begin searching now in the search bar!"
+          />
         </div>
       </div>
     );
   }
 
-  const { news, hits } = await fetchSearch(q, page);
+  const { news, hits, error } = await fetchSearch(q, page);
+
+  // Show a clear empty state when no results (or on recoverable error)
+  if (!news.length) {
+    return (
+      <div className="container mx-auto py-8">
+        <h1 className="text-3xl font-semibold text-center">Results for “{q}”</h1>
+        <p className="text-center text-gray-500 mt-2">
+          {error ? 'We had trouble fetching results. Please try again in a moment.' : '0 matching articles'}
+        </p>
+        <div className="mt-8 flex justify-center">
+          <EmptyState
+            animation={NoDataAnimation}
+            message={error ? 'Something went wrong. Try again.' : 'No results found. Try different keywords.'}
+          />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto py-8">

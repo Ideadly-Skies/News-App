@@ -6,8 +6,8 @@ import EmptyState from './empty-state';
 
 type Props = {
   news: News[] | undefined | null;
-  perPage?: number;               // how many cards per page (default 12)
-  scrollToTopOnChange?: boolean;  // smooth-scroll to top on page change
+  perPage?: number;             
+  scrollToTopOnChange?: boolean;
 };
 
 export default function NewsContainer({
