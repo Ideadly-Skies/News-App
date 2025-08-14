@@ -1,23 +1,36 @@
-// app/page.tsx
-import NewsContainer from "@/components/news-container";
+import NewsContainer from '@/components/news-container';
+const API_KEY = process.env.NYTIMES_API_KEY;
 
-async function fetchNews() {
-  const res = await fetch("http://localhost:3001/news", {
-    cache: "force-cache",
-    next: { tags: ["news"] },
-  });
-  if (!res.ok) throw new Error("Failed to fetch news");
-  return res.json();
+async function fetchNews(): Promise<News[]> {
+  const res = await fetch(
+    `https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${API_KEY}`,
+    { cache: 'force-cache' }
+  );
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch news');
+  }
+
+  const data: NYTApiResponse = await res.json();
+
+  return data.results.map((it, idx) => ({
+    id: String(idx),
+    title: it.title,
+    description: it.abstract,
+    poster: it.multimedia?.[0]?.url ?? '',
+    publishedAt: it.published_date,
+    originalUrl: it.url,
+    author: it.byline?.replace(/^By\s+/i, '') ?? '',
+    category: it.section ?? '',
+  }));
 }
 
 export default async function Home() {
-  const news = await fetchNews()
-  console.log(news)
-
+  const news = await fetchNews();
   return (
-    <main className="container mx-auto px-4 py-8">
+    <div className="container mx-auto py-5">
       <h1 className="text-4xl font-semibold text-center">Daily News</h1>
       <NewsContainer news={news} />
-    </main>
+    </div>
   );
 }

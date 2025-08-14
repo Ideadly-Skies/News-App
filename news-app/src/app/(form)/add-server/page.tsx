@@ -1,95 +1,71 @@
-// app/add-server/page.tsx
-import { revalidateTag } from "next/cache";
-import { redirect } from "next/navigation";
-
-type News = {
-  id?: string | number;
-  title: string;
-  description: string;
-  poster?: string;
-  publishedAt?: string;
-  originalUrl?: string;
-  author?: string;
-  category?: string;
-};
+import { redirect } from 'next/navigation';
+import { revalidatePath } from 'next/cache';
 
 export default function AddNews() {
   async function handleSubmit(formData: FormData) {
-    "use server";
-
-    const payload: News = {
-      title: (formData.get("title") || "").toString().trim(),
-      description: (formData.get("description") || "").toString().trim(),
-      poster: (formData.get("poster") || "").toString().trim(),
-      // default to today if empty
-      publishedAt:
-        (formData.get("publishedAt")?.toString().trim() as string) ||
-        new Date().toISOString().slice(0, 10),
-      originalUrl: (formData.get("originalUrl") || "").toString().trim(),
-      author: (formData.get("author") || "").toString().trim(),
-      category: (formData.get("category") || "").toString().trim(),
+    'use server';
+    const rawFormData = {
+      title: formData.get('title'),
+      description: formData.get('description'),
+      poster: formData.get('poster'),
     };
 
-    if (!payload.title || !payload.description) {
-      throw new Error("Title and description are required.");
-    }
-
-    // POST directly to json-server (server-side; secrets safe)
-    const upstream = await fetch("http://localhost:3001/news", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      // cache setting irrelevant for POST, omitted
-      body: JSON.stringify(payload),
+    const res = await fetch('http://localhost:3001/news', {
+      method: 'POST',
+      body: JSON.stringify(rawFormData),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
 
-    if (!upstream.ok) {
-      const text = await upstream.text();
-      throw new Error(`Failed to create news: ${upstream.status} ${upstream.statusText} ${text.slice(0,120)}`);
+    if (!res.ok) {
+      throw new Error('Error submit data');
     }
 
-    // Try to read created object to get its id (json-server returns the created row)
-    let created: News | null = null;
-    const ct = upstream.headers.get("content-type") || "";
-    if (ct.includes("application/json")) {
-      created = (await upstream.json()) as News;
-    }
-
-    // ✅ Invalidate caches that used `cache: "force-cache"` + tags
-    revalidateTag("news"); // list page
-    if (created?.id != null) revalidateTag(`news-${created.id}`); // detail page
-
-    redirect("/");
+    revalidatePath('/');
+    redirect('/');
   }
 
   return (
     <div className="container max-w-2xl mx-auto">
-      <h1 className="text-4xl font-semibold text-center py-5">Add News — Server</h1>
-
-      <form action={handleSubmit} className="flex flex-col gap-2">
-        <label>Title</label>
-        <input name="title" type="text" required className="border p-2 rounded-md" />
-
-        <label>Description</label>
-        <textarea name="description" required className="border p-2 rounded-md" />
-
-        <label>Poster URL</label>
-        <input name="poster" type="url" className="border p-2 rounded-md" />
-
-        <label>Published At</label>
-        <input name="publishedAt" type="date" className="border p-2 rounded-md" />
-
-        <label>Original URL</label>
-        <input name="originalUrl" type="url" className="border p-2 rounded-md" />
-
-        <label>Author</label>
-        <input name="author" type="text" className="border p-2 rounded-md" />
-
-        <label>Category</label>
-        <input name="category" type="text" className="border p-2 rounded-md" />
-
-        <button type="submit" className="mt-4 bg-black text-white p-2 rounded-md">
-          Submit
-        </button>
+      <h1 className="text-4xl font-semibold text-center py-5">
+        Add News - Server
+      </h1>
+      <form action={handleSubmit}>
+        <div className="flex flex-col gap-2">
+          <label htmlFor="title" className="text-lg font-medium">
+            Title
+          </label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            className="border border-gray-300 rounded-md p-2 dark:bg-zinc-900 dark:text-white dark:border-gray-700"
+          />
+          <label htmlFor="description" className="text-lg font-medium">
+            Description
+          </label>
+          <textarea
+            id="description"
+            name="description"
+            className="border border-gray-300 rounded-md p-2 dark:bg-zinc-900 dark:text-white dark:border-gray-700"
+          />
+          <label htmlFor="poster" className="text-lg font-medium">
+            Image URL
+          </label>
+          <input
+            type="text"
+            id="poster"
+            name="poster"
+            className="border border-gray-300 rounded-md p-2 dark:bg-zinc-900 dark:text-white dark:border-gray-700"
+          />
+          <button
+            type="submit"
+            className="bg-black dark:bg-white dark:text-black text-white px-4 py-2 rounded-md mt-10"
+          >
+            Add News
+          </button>
+        </div>
       </form>
     </div>
   );
