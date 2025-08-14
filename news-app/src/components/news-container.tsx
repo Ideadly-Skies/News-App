@@ -3,7 +3,7 @@ import EmptyState from './empty-state';
 
 export default function NewsContainer({ news }: { news: News[] | undefined | null }) {
   if (!news || news.length === 0) {
-    return <EmptyState message="This page is empty right now. Please try another category." />;
+    return <EmptyState/>;
   }
 
   return (
