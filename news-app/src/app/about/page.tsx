@@ -355,65 +355,65 @@ function CTA({
 }: {
   href: string;
   label: string;
-  target?: string;
+  target?: React.HTMLAttributeAnchorTarget;
   rel?: string;
 }) {
   return (
     <div className="group relative mt-10 border-y border-black/10 transition-colors duration-300 hover:bg-[#F5A623] focus-within:bg-[#F5A623]">
-      {/* Keep the link above the highlight */}
-      <Link href={href} passHref legacyBehavior>
-        <a
-          className="relative z-10 flex items-center gap-3 py-6 md:py-8 group"
-          title={label}
-          target={target}
-          rel={rel}
-        >
-          <span className="inline-grid place-items-center w-8 h-8 rounded-full bg-black text-white">
-            <svg width="16" height="16" viewBox="0 0 32 32" aria-hidden="true">
-              <circle cx="16" cy="16" r="16" />
-              <path
-                d="M21.8 15.6 12.8 10.1c-.4-.3-1.0.2-.7.6l2.9 5.3-2.9 5.3c-.2.4.3.9.7.6l9-5.5c.3-.2.3-.6 0-.8Z"
-                fill="currentColor"
-              />
-            </svg>
-          </span>
-          <span className="uppercase text-sm font-bold tracking-wide group-hover:underline">
-            {label}
-          </span>
-        </a>
+      <Link
+        href={href}
+        title={label}
+        target={target}
+        rel={rel}
+        className="relative z-10 flex items-center gap-3 py-6 md:py-8"
+      >
+        <span className="inline-grid place-items-center w-8 h-8 rounded-full bg-black text-white">
+          <svg width="16" height="16" viewBox="0 0 32 32" aria-hidden="true">
+            <circle cx="16" cy="16" r="16" />
+            <path
+              d="M21.8 15.6 12.8 10.1c-.4-.3-1.0.2-.7.6l2.9 5.3-2.9 5.3c-.2.4.3.9.7.6l9-5.5c.3-.2.3-.6 0-.8Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+        <span className="uppercase text-sm font-bold tracking-wide group-hover:underline">
+          {label}
+        </span>
       </Link>
     </div>
   );
 }
-
 
 function ExploreCard({
   href,
   title,
   img,
   target,
-  rel
+  rel,
 }: {
   href: string;
   title: string;
   img: string;
-  target?: string;
+  target?: React.HTMLAttributeAnchorTarget;
   rel?: string;
 }) {
   return (
-    <Link href={href} passHref legacyBehavior>
-      <a className="group block no-underline" target={target} rel={rel}>
-        <div className="aspect-square overflow-hidden">
-          <Image
-            src={img}
-            alt={title}
-            width={1000}
-            height={1000}
-            className="h-full w-full object-cover transition-opacity duration-200 group-hover:opacity-85"
-          />
-        </div>
-        <p className="mt-3 font-sans font-bold text-lg">{title}</p>
-      </a>
+    <Link
+      href={href}
+      target={target}
+      rel={rel}
+      className="group block no-underline"
+    >
+      <div className="aspect-square overflow-hidden">
+        <Image
+          src={img}
+          alt={title}
+          width={1000}
+          height={1000}
+          className="h-full w-full object-cover transition-opacity duration-200 group-hover:opacity-85"
+        />
+      </div>
+      <p className="mt-3 font-sans font-bold text-lg">{title}</p>
     </Link>
   );
 }
