@@ -2,6 +2,8 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import NewsContainer from '@/components/news-container';
+import EmptyState from '@/components/empty-state';
+import NoDataAnimation from '@/lotties/404.json';
 
 const API_KEY = process.env.NYTIMES_API_KEY;
 const PAGE_SIZE = 10;
@@ -77,6 +79,14 @@ export default async function SearchPage({
         <p className="text-center text-gray-500">
           Type a query in the search box to find articles.
         </p>
+
+        {/* Lottie empty state */}
+        <div className="mt-8 flex justify-center">
+            <EmptyState
+                animation={NoDataAnimation}
+                message='begin searching now in the search bar!'
+            />
+        </div>
       </div>
     );
   }
