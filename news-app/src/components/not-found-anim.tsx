@@ -6,10 +6,10 @@ import animationData from '@/lotties/404.json';
 
 export default function NotFoundAnim() {
   const boxRef = useRef<HTMLDivElement | null>(null);
-  const [ready, setReady] = useState(false); // avoid StrictMode double-init
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    if (ready) return; // guard against dev double-mount
+    if (ready) return;
     setReady(true);
 
     let anim: import('lottie-web').AnimationItem | undefined;
