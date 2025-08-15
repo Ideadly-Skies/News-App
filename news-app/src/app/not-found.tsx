@@ -1,6 +1,7 @@
 // app/not-found.tsx
 import { Suspense } from "react";
 import NotFoundAnim from "@/components/not-found-anim";
+export const dynamic = "force-dynamic";
 
 export default function NotFound() {
   return (
