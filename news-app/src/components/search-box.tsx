@@ -1,4 +1,3 @@
-// components/search-box.tsx
 'use client';
 
 import { useEffect, useRef, useState, useTransition } from 'react';
